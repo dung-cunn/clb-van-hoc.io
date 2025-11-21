@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu Lạc Bộ Văn Học</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .greeting {
+            border-left: 5px solid #8b4513;
+            padding: 20px;
+            background: #faf6f1;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .greeting h2 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .greeting p {
+            margin-bottom: 12px;
+            line-height: 1.9;
+            text-align: justify;
+            font-size: 1em;
+        }
+
+        .motto {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #8b4513;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .members {
+            margin: 30px 0;
+        }
+
+        .members h3 {
+            color: #8b4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #fff5e1 0%, #ffe4b5 100%);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #d2691e;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(139, 69, 19, 0.2);
+        }
+
+        .member-card strong {
+            color: #8b4513;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .member-card p {
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .video-section h3 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .video-placeholder-info {
+            background: #fffacd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .video-placeholder-info h4 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .video-placeholder-info p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .video-placeholder-info code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d2691e;
+        }
+
+        .summary {
+            background: #f9f3e6;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #d2691e;
+        }
+
+        .summary h4 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .summary p {
+            text-align: justify;
+            line-height: 1.9;
+            color: #444;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .highlight {
+            background: #fffacd;
+            padding: 18px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 5px solid #ffc107;
+        }
+
+        .highlight h4 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+        }
+
+        .highlight p {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .content-text {
+            text-align: justify;
+            line-height: 1.9;
+            color: #555;
+            font-size: 1em;
+        }
+
+        .divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d2691e, transparent);
+            margin: 30px 0;
+        }
+
+        .leader-section {
+            background: linear-gradient(135deg, #fff5e1 0%, #ffe8b6 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #d2691e;
+            margin-bottom: 25px;
+        }
+
+        .leader-section h3 {
+            color: #8b4513;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .leader-section p {
+            text-align: justify;
+            line-height: 1.9;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe8b6 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #d2691e;
+            text-align: center;
+        }
+
+        .call-to-action h2 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .call-to-action p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #8b4513;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            font-family: 'Lora', serif;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📚 Câu Lạc Bộ Văn Học</h1>
+        <p>"Tuổi trẻ rực rỡ – không hứa, chỉ làm"</p>
+    </header>
+
+    <div class="container">
+        <!-- Phần Chào Mừng -->
+        <div class="section">
+            <div class="greeting">
+                <h2>🎭 Lời Chào Mừng</h2>
+                <p><strong>Kính thưa Ban Giám Khảo, kính thưa thầy cô và toàn thể các bạn trong Câu lạc bộ Văn
+                        học!</strong></p>
+
+                <p>Hôm nay, nhóm chúng em – nhóm <strong>"Ngôi Nhà Văn Học"</strong> – vô cùng vinh dự được góp mặt
+                    trong buổi sinh hoạt và trình bày cảm nhận của mình về một tác phẩm nổi tiếng. Với tinh thần mà nhóm
+                    luôn tự hào, <strong>"Tuổi trẻ rực rỡ – không hứa, chỉ làm"</strong> là lời tuyên bố mạnh mẽ về hành
+                    động, nỗ lực và sự sáng tạo của chính chúng em.</p>
+
+                <p>Không nói suông, không hứa hẹn, chúng em dùng kết quả thật để chứng minh cho đam mê và trách nhiệm
+                    của mình trong mỗi dự án văn học.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Phần Giới Thiệu Thành Viên -->
+        <div class="section">
+            <div class="members">
+                <h3>👥 Giới Thiệu Đội Ngũ "Ngôi Nhà Văn Học"</h3>
+                <p style="text-align: center; margin-bottom: 20px; color: #666;">Để tạo nên một tập thể đoàn kết và tràn
+                    đầy nhiệt huyết, xin trân trọng giới thiệu 9 thành viên của nhóm:</p>
+
+                <div class="members-grid">
+                    <div class="member-card">
+                        <strong>👑 Lương Ngọc Bảo Hân</strong>
+                        <p><strong>Vị trí:</strong> Nhóm trưởng</p>
+                        <p><strong>Đặc điểm:</strong> Bản lĩnh, quyết đoán và luôn dẫn dắt nhóm bằng sự chỉn chu.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>⚡ Đặng Trần Anh Dũng</strong>
+                        <p><strong>Vị trí:</strong> Nhóm phó</p>
+                        <p><strong>Đặc điểm:</strong> Năng động, sáng tạo và luôn là người đưa ra hướng giải quyết kịp
+                            thời.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>💎 Bùi Gia Hân</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Tinh tế và giàu cảm xúc trong từng phân tích văn học.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>🔍 Nguyễn Thanh Vương</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Lý luận sắc bén, mạnh mẽ trong cách nhìn nhận tác phẩm.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>💡 Huỳnh Phúc Nguyên</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Luôn đóng góp những ý kiến độc đáo và đầy mới mẻ.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>✓ Lại Nguyễn Quý Nhi</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Cẩn thận, chu đáo, giúp nhóm hoàn thiện mọi phần việc.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>🎤 Hồ Trường Hải</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Giọng đọc truyền cảm, thổi hồn vào từng câu chữ.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>🤝 Ngô Thanh Tâm</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Hòa đồng, linh hoạt, là cầu nối tuyệt vời của nhóm.</p>
+                    </div>
+
+                    <div class="member-card">
+                        <strong>🔥 Ngô Khải Anh</strong>
+                        <p><strong>Vị trí:</strong> Thành viên</p>
+                        <p><strong>Đặc điểm:</strong> Nhiệt huyết, luôn lan tỏa năng lượng tích cực cho cả đội.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Phần Giới Thiệu Tác Phẩm -->
+        <div class="section">
+            <h2
+                style="color: #8b4513; text-align: center; margin-bottom: 20px; font-family: 'Playfair Display', serif; font-size: 2em;">
+                📖 Tác Phẩm Chính</h2>
+
+            <div class="leader-section">
+                <h3>⚡ Đặng Trần Anh Dũng</h3>
+                <p><strong>Phần I - Giới thiệu và phân tích tác phẩm:</strong></p>
+                <p>Đây là lời tuyên bố mạnh mẽ về hành động, nỗ lực và sự sáng tạo của chính chúng em. Không nói suông,
+                    không hứa hẹn, chúng em dùng kết quả thật để chứng minh cho đam mê và trách nhiệm của mình trong mỗi
+                    dự án văn học.</p>
+            </div>
+
+            <div
+                style="background: linear-gradient(135deg, #fff8e1 0%, #ffe8b6 100%); padding: 30px; border-radius: 10px; border: 2px solid #d2691e; text-align: center; margin-bottom: 25px;">
+                <h3
+                    style="color: #8b4513; font-size: 2em; margin-bottom: 10px; font-family: 'Playfair Display', serif;">
+                    🎭 "Không Gia Đình"</h3>
+                <p style="font-size: 1.2em; color: #666; margin-bottom: 5px;"><strong>Tác giả:</strong> Hector Malot</p>
+                <p style="color: #666; font-style: italic;">Tiểu thuyết kinh điển của văn học Pháp</p>
+            </div>
+
+            <div class="leader-section">
+                <h3>🎤 Hồ Trường Hải</h3>
+                <p><strong>Vị trị:</strong> Tiếp theo, xin được giới thiệu bạn Hồ Trường Hải, người sẽ giúp nhóm truyền
+                    tải tác phẩm với giọng đọc truyền cảm.</p>
+            </div>
+
+            <div class="leader-section">
+                <h3>📖 Tiêu Thuyết Kinh Điển của Văn Học Pháp</h3>
+                <p>Dùng với tinh thần "không hứa, chỉ làm", nhóm Ngôi Nhà Văn Học xin được mang đến bài thuyết trình về:
+                </p>
+                <p>Đây không chỉ là hành trình phiêu lưu của cậu bé Rémi, mà còn là bài học về nghị lực, lòng nhân ái và
+                    sự mạnh mẽ của con người trước biến cố. Những giá trị ấy chính là điều mà nhóm chúng em cảm nhận sâu
+                    sắc – và cũng là nguồn cảm hứng để chúng em hoàn thành bài thuyết trình này.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- PHẦN VIDEO MỚI -->
+        <div class="section">
+            <div class="video-section">
+                <h3>🎬 Nội Dung Video Thuyết Trình</h3>
+
+                <!-- Video Container - Thay đổi phần này theo hướng dẫn dưới -->
+                <div class="video-container">
+                    <!-- CÁCH 2: VIDEO FILE TỪ MÁY TÍNH (ĐÃ BẬT) -->
+                    <video src="CLB VĂN HỌC.mp4" controls style="border-radius: 10px;">
+                    </video>
+
+                    <!-- CÁCH 1: YOUTUBE -->
+                    <!-- Thay VIDEO_ID bằng ID của video YouTube của bạn -->
+                    <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+                            title="Câu Lạc Bộ Văn Học - Không Gia Đình"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe> -->
+
+                    <!-- CÁCH 3: GOOGLE DRIVE -->
+                    <!-- Thay FILE_ID bằng ID file trên Google Drive -->
+                    <!-- <iframe src="https://drive.google.com/file/d/FILE_ID/preview" 
+                            allow="autoplay">
+                    </iframe> -->
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Phần Tóm Tắt Nội Dung -->
+                <div class="section">
+                    <div class="summary">
+                        <h4>📝 Tóm Tắt Nội Dung:</h4>
+
+                        <p><strong>Trong cuộc đời mỗi con người, có một nơi dù ta đi xa đến đâu cũng muốn trở về – đó là
+                                gia
+                                đình. Nhưng không phải ai cũng may mắn có được nơi chốn ấy.</strong></p>
+
+                        <p>Tiểu thuyết "Không gia đình" của Hector Malot là bản nhạc buồn, thấm đẫm tình người, kể về
+                            cuộc đời
+                            của cậu bé Rémi – một đứa trẻ mồ côi phải lang thang khắp nước Pháp để mưu sinh. Tác phẩm
+                            không chỉ
+                            khiến ta rơi nước mắt bởi những mất mát, mà còn đánh thức trong mỗi người niềm biết ơn và
+                            trân trọng
+                            gia đình, thứ hạnh phúc tưởng như bình thường mà vô cùng quý giá.</p>
+
+                        <div class="highlight">
+                            <h4>💭 Bài Học Sâu Sắc:</h4>
+                            <p><strong>Gia đình là cái nôi nuôi dưỡng tâm hồn,</strong> là nơi ta được yêu thương, bao
+                                dung và
+                                chó che vô điều kiện. Rémi từng khát khao có một mái nhà, một vòng tay ấm áp, trong khi
+                                nhiều
+                                người trong chúng ta lại vô tình xem đó là điều hiển nhiên.</p>
+                        </div>
+
+                        <h4 style="color: #8b4513; margin-top: 25px; margin-bottom: 10px;">⚠️ Vấn Đề Thực Tế Ngày Nay:
+                        </h4>
+                        <p>Ngày nay, khi xã hội phát triển, không ít bạn trẻ lại dần xa cách với gia đình. Ho dành thời
+                            gian cho
+                            mạng xã hội, cho các mối quan hệ ảo, mà quên đi ánh mắt, nụ cười và từng giọt mồ hôi của cha
+                            mẹ. Có
+                            người thậm chí bất hiếu, cãi vã, xem nhẹ tình thân, coi cha mẹ như "gánh nặng".</p>
+
+                        <div class="highlight">
+                            <h4>🌟 Lời Kêu Gọi:</h4>
+                            <p>Họ đâu biết rằng, ngoài kia vẫn có biết bao đứa trẻ mồ côi, đơn độc, thèm khát chỉ một
+                                tiếng gọi
+                                "mẹ ơi" hay một cái ôm của cha. <strong>Chúng ta – những người may mắn được sống trong
+                                    tình yêu
+                                    thương – cần học cách biết ơn và trân trọng.</strong> Hãy quan tâm đến cha mẹ bằng
+                                những
+                                điều giản dị: một lời hỏi han, một cái nắm tay, hay đơn giản là cố gắng học tập, sống
+                                tốt để họ
+                                tự hào.</p>
+                        </div>
+
+                        <p style="margin-top: 20px;"><strong>Tình thân không đòi hỏi vật chất lớn lao, chỉ cần một tấm
+                                lòng chân
+                                thành.</strong> Ngược lại, nếu con người đánh mất sợi dây gắn bó ấy, xã hội sẽ trở nên
+                            lạnh lẽo,
+                            ích kỷ và vô cảm. Bởi không có gia đình, con người như chiếc lá rơi giữa dòng đời, lạc lõng,
+                            bơ vơ –
+                            như chính Rémi trong những ngày đầu lưu lạc.</p>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Phần Chi Tiết Phân Tích -->
+                <div class="section">
+                    <div class="leader-section">
+                        <h3>🖋️ Tóm Tắt Nội Dung:</h3>
+                        <p>Trong cuộc đời mỗi con người, có một nơi dù ta đi xa đến đâu cũng muốn trở về – đó là gia
+                            đình. Nhưng
+                            không phải ai cũng may mắn có được nơi chốn ấy.</p>
+                        <p>Tiểu thuyết "Không gia đình" của Hector Malot là bản nhạc buồn, thấm đẫm tình người, kể về
+                            cuộc đời
+                            của cậu bé Rémi – một đứa trẻ mồ côi phải lang thang khắp nước Pháp để mưu sinh. Tác phẩm
+                            không chỉ
+                            khiến ta rơi nước mắt bởi những mất mát, mà còn đánh thức trong mỗi người niềm biết
